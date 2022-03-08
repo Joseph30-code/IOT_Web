@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="text/javascript">
+ 
+    (function (global) {
+      if(typeof (global) === "undefined") {
+        throw new Error("window is undefined");
+      }
+      var _hash = "!";
+      var noBackPlease = function () {
+        global.location.href += "#";
+        global.setTimeout(function () {
+          global.location.href += "!";
+        }, 50);
+      };
+      global.onhashchange = function () {
+        if (global.location.hash !== _hash) {
+          global.location.hash = _hash;
+        }
+      };
+      global.onload = function () {
+        noBackPlease();
+        // disables backspace on page except on input fields and textarea..
+        document.body.onkeydown = function (e) {
+          var elm = e.target.nodeName.toLowerCase();
+          if (e.which === 8 && (elm !== 'input' && elm !== 'textarea')) {
+            e.preventDefault();
+          }
+          // stopping event bubbling up the DOM tree..
+          e.stopPropagation();
+        };
+      }
+    })(window);
+       </script>
+   </head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Home/home.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+    <title>Home</title>
+    <!-- add icon link -->
+    <link rel = "icon" href = 
+    'https://i.postimg.cc/4NMMjY83/Joseph.png'
+            type = "image/x-icon">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bx-chip' ></i>
+          <span class="logo_name">IOT</span>
+        </div>
+          <ul class="nav-links">
+            <li>
+              <a href="#" class="active">
+                <i class='bx bx-grid-alt' ></i>
+                <span class="links_name" id="userlink">Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://jmtechbog.netlify.app/index.html">
+                <i class='bx bx-user' ></i>
+                <span class="links_name">About me</span>
+              </a>
+            </li>
+            <li>
+              <a href="./Carousel/carousel.html">
+                <i class='bx bx-carousel' ></i>
+                <span class="links_name">Carousel</span>
+              </a>
+            </li>
+            <li>
+              <a href="./Analytics/analytics.html">
+                <i class='bx bx-pie-chart-alt-2' ></i>
+                <span class="links_name">Analytics</span>
+              </a>
+            </li>
+            <li>
+              <a href="./Game/game.html">
+                <i class='bx bx-coin-stack' ></i>
+                <span class="links_name">Games</span>
+              </a>
+            </li>
+            <li>
+              <a href="./Iot/iot.html">
+                <i class='bx bx-book-alt' ></i>
+                <span class="links_name">IOT info</span>
+              </a>
+            </li>
+            <li>
+              <a href="./Favrorites/favorite.html">
+                <i class='bx bx-heart' ></i>
+                <span class="links_name">Favrorites</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://jmtechbog.netlify.app/contact.html" >
+                <i class='bx bx-message' ></i>
+                <span class="links_name">Contact me</span>
+              </a>
+            </li>
+        
+      
+          
+            <li class="log_out">
+              <a href="./Login/login.html">
+                <i class='bx bx-log-out' id="logout"></i>
+                <span class="links_name" ><p id="logv" style="margin-top: 15px;"></p></span>
+              </a>
+            </li>
+          </ul>
+      </div>
+      <section class="home-section">
+        <nav>
+          <div class="sidebar-button">
+            <i class='bx bx-menu sidebarBtn'></i>
+            <span class="dashboard">Dashboard</span>
+          </div>
+
+          <div class="profile-details">
+            <a href='./QRcode/qr.html' target='_blank'><img src='https://i.postimg.cc/xC41pK1X/qr-scan-regular-24.png' alt='qr-scan-regular-24'/></a>
+            <span class="links_name"> Scan your QR code</span>
+          </div>
+         
+        </nav>
+    
+        <div class="home-content">
+          <div class="overview-boxes">
+
+            <div class="box">
+              <div class="right-side">
+                <div class="box-topic" style="font-size: 19px;">QR Code</div>
+                <div class="number" style="font-size: 23px; margin-top: 5px;" id="qr_value">405433333876</div>
+                <div class="indicator">
+                  <i class='bx bx-up-arrow-alt' style="margin-top: 10px; background-color: rgb(10, 54, 136);"></i>
+                  <span class="text" style="margin-top: 15px;">Your current value</span>
+                </div>
+              </div>
+              <i class="fa  fa-qrcode" style="color: rgb(10, 54, 136); margin-top: 1px; margin-left: 30px; font-size: 44px;"></i>
+            </div>
+
+            <div class="box">
+              
+                <div class="card-body" style="width: 100px; height: 145px; margin-top: -35px; margin-left: 60px;">
+                  <h2><img src="" id="icon"><span id="location" style="font-size: 23px;"></span></h2>
+                  <h6 id ="weather" style="margin-top: -7px;"></h6>
+                  <h4 id="temp" style="font-size: 16px;"></h4>
+                  <div class="indicator">
+                    <i class='bx bx-up-arrow-alt'></i>
+                    <span class="text">Your Current Weather</span>
+                  </div> 
+                </div> 
+            </div>
+
+            <div class="box">
+              <div class="right-side">
+                <span class="text" style="font-size: 18px; font-weight: 800px;">Your Home Temperature</span>
+                <div class="box-topic" style="margin-bottom: 5px;">Node Temperature</div>
+                <div class="number" style="font-size: 16px; margin-bottom: 5px;" id="nodetemp1"></div>
+                <div class="indicator">
+                  <i class='bx bx-up-arrow-alt'></i>
+                  <span class="text">Up from today</span>
+                </div>
+              </div>
+              <i class='bx bx-sun cart three' ></i>
+            </div>
+
+            <div class="box">
+              <div class="right-side">
+                <span class="text" style="font-size: 18px; font-weight: 800px;">Your Home Motion</span>
+                <div class="box-topic" style="margin-bottom: 5px;">Node Motion</div>
+                <div class="number" style="font-size: 16px; margin-bottom: 5px;" id="motiontemp"></div>
+                <div class="indicator">
+                  <i class='bx bx-up-arrow-alt down'></i>
+                  <span class="text">Your Current status</span>
+                </div>
+              </div>
+              <i class='bx bx-bell-plus cart four' ></i>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="home-content" style="margin-top: -100px;">
+          <div class="overview-boxes">
+
+           <div class="box">
+              <div class="right-side">
+                <span class="text" style="font-size: 18px; font-weight: 800px;">Your Gas Sensor</span>
+                <div class="box-topic" style="margin-bottom: 5px;">Node Sensor</div>
+                <div class="number" style="font-size: 16px; margin-bottom: 5px;" id="gasst"></div>
+                <div class="indicator">
+                  <i class='bx bx-up-arrow-alt'></i>
+                  <span class="text">Up from today</span>
+                </div>
+              </div>
+              <i class='bx bx-gas-pump cart three' ></i>
+            </div>
+
+            <div class="box">
+              <div class="right-side">
+                <span class="text" style="font-size: 18px; font-weight: 800px;">Your Sound Sensor</span>
+                <div class="box-topic" style="margin-bottom: 5px;">Node Sensor</div>
+                <div class="number" style="font-size: 16px; margin-bottom: 5px;" id="soundx"></div>
+                <div class="indicator">
+                  <i class='bx bx-up-arrow-alt down'></i>
+                  <span class="text">Your Current status</span>
+                </div>
+              </div>
+              <i class='bx bx-align-justify cart four' ></i>
+            </div>
+
+            <div class="box">
+              <div class="right-side">
+                <span class="text" style="font-size: 18px; font-weight: 800px;">Your IR Sensor</span>
+                <div class="box-topic" style="margin-bottom: 5px;">Node Sensor</div>
+                <div class="number" style="font-size: 16px; margin-bottom: 5px;" id="IRstate"></div>
+                <div class="indicator">
+                  <i class='bx bx-up-arrow-alt'></i>
+                  <span class="text">Up from today</span>
+                </div>
+              </div>
+              <i class='bx bx-vertical-center cart three' ></i>
+            </div>
+
+            <div class="box">
+              <div class="right-side">
+                <span class="text" style="font-size: 18px; font-weight: 800px;">Your Soil Sensor</span>
+                <div class="box-topic" style="margin-bottom: 5px;">Node Sensor</div>
+                <div class="number" style="font-size: 16px; margin-bottom: 5px;" id="soilstate"></div>
+                <div class="indicator">
+                  <i class='bx bx-up-arrow-alt down'></i>
+                  <span class="text">Your Current status</span>
+                </div>
+              </div>
+              <i class='bx bx-planet cart four' ></i>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="home-content" style="margin-top: -100px;">
+          <div class="overview-boxes">
+
+           <div class="box">
+              <div class="right-side">
+                <span class="text" style="font-size: 18px; font-weight: 800px;">Your Home Temp/Humidity</span>
+                <div class="box-topic" style="margin-bottom: 5px;">Node Temp/Humidity</div>
+                <div class="number" style="font-size: 16px; margin-bottom: 5px;" id="temphum"></div>
+                <div class="indicator">
+                  <i class='bx bx-up-arrow-alt'></i>
+                  <span class="text">Up from today</span>
+                </div>
+              </div>
+              <i class='bx bx-trending-up cart three' ></i>
+            </div>
+
+            <div class="box">
+              <div class="right-side">
+                <span class="text" style="font-size: 18px; font-weight: 800px;">Your Rain Sensor</span>
+                <div class="box-topic" style="margin-bottom: 5px;">Node Sensor</div>
+                <div class="number" style="font-size: 16px; margin-bottom: 5px;" id="rainsen"></div>
+                <div class="indicator">
+                  <i class='bx bx-up-arrow-alt down'></i>
+                  <span class="text">Your Current status</span>
+                </div>
+              </div>
+              <i class='bx bx-cloud-light-rain cart four' ></i>
+            </div>
+
+            <div class="box">
+              <div class="right-side">
+                <span class="text" style="font-size: 18px; font-weight: 800px;">Your Vibration Sensor</span>
+                <div class="box-topic" style="margin-bottom: 5px;">Node Sensor</div>
+                <div class="number" style="font-size: 16px; margin-bottom: 5px;" id="vib"></div>
+                <div class="indicator">
+                  <i class='bx bx-up-arrow-alt'></i>
+                  <span class="text">Up from today</span>
+                </div>
+              </div>
+              <i class='bx bx-street-view cart three' ></i>
+            </div>
+
+            <div class="box">
+              <div class="right-side">
+                <span class="text" style="font-size: 18px; font-weight: 800px;">Your Hall Sensor</span>
+                <div class="box-topic" style="margin-bottom: 5px;">Node Sensor</div>
+                <div class="number" style="font-size: 16px; margin-bottom: 5px;" id="hall"></div>
+                <div class="indicator">
+                  <i class='bx bx-up-arrow-alt down'></i>
+                  <span class="text">Your Current status</span>
+                </div>
+              </div>
+              <i class='bx bx-magnet cart four' ></i>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="home-content" style="margin-top: -100px;">
+          <div class="overview-boxes">
+
+           <div class="box">
+              <div class="right-side">
+                <span class="text" style="font-size: 18px; font-weight: 800px;">Your UltraSonic Sensor</span>
+                <div class="box-topic" style="margin-bottom: 5px;">Node sensor</div>
+                <div class="number" style="font-size: 16px; margin-bottom: 5px;" id="utsen"></div>
+                <div class="indicator">
+                  <i class='bx bx-up-arrow-alt'></i>
+                  <span class="text">Up from today</span>
+                </div>
+              </div>
+              <i class='bx bx-pulse cart three' ></i>
+            </div>
+
+            <div class="box">
+              <div class="right-side">
+                <span class="text" style="font-size: 18px; font-weight: 800px;">Your LDR Sensor</span>
+                <div class="box-topic" style="margin-bottom: 5px;">Node Sensor</div>
+                <div class="number" style="font-size: 16px; margin-bottom: 5px;" id="ldr"></div>
+                <div class="indicator">
+                  <i class='bx bx-up-arrow-alt down'></i>
+                  <span class="text">Your Current status</span>
+                </div>
+              </div>
+              <i class='bx bx-droplet cart four' ></i>
+            </div>
+
+            <div class="box">
+              <div class="right-side">
+                <span class="text" style="font-size: 18px; font-weight: 800px;">Your Touch Sensor</span>
+                <div class="box-topic" style="margin-bottom: 5px;">Node Sensor</div>
+                <div class="number" style="font-size: 16px; margin-bottom: 5px;" id="touch"></div>
+                <div class="indicator">
+                  <i class='bx bx-up-arrow-alt'></i>
+                  <span class="text">Up from today</span>
+                </div>
+              </div>
+              <i class='bx bx-map-pin cart three' ></i>
+            </div>
+
+            <div class="box">
+              <div class="right-side">
+                <span class="text" style="font-size: 18px; font-weight: 800px;">Your Tilt Sensor</span>
+                <div class="box-topic" style="margin-bottom: 5px;">Node Sensor</div>
+                <div class="number" style="font-size: 16px; margin-bottom: 5px;"  id="tilt"></div>
+                <div class="indicator">
+                  <i class='bx bx-up-arrow-alt down'></i>
+                  <span class="text">Your Current status</span>
+                </div>
+              </div>
+              <i class='bx bx-wind cart four' ></i>
+            </div>
+
+          </div>
+        </div>
+
+
+        
+
+      </section>   
+</body>
+<script src="./Home/home.js" type="module"></script>
+<script src="./Home/index.js" type="text/javascript"></script>
+</html>

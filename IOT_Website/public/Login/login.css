@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+#banner{
+    background:linear-gradient(rgba(0,0,0,0.5),#1c4da885),url("https://i.postimg.cc/5NR9RgXx/computer.jpg");
+    background-size: cover;
+    background-position:center ;
+    height: 100vh;
+}
+.banner-text{
+    text-align: center;
+    padding-top: 100px;
+}
+span.note {
+    font-weight: 600;
+    font-size: 2em;
+    color: white;
+}
+input[type="text"] {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    background: transparent;
+}
+input[type="password"] {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    background: transparent;
+}
+input[type="email"] {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    background: transparent;
+}
+.form-row{
+    padding-top: 60px;
+}
+.banner-text-1{
+    margin-top: 20px;
+    text-align: center;
+    padding-top: 0px;
+}
+.banner-text-2{
+    text-align: center;
+    padding-top: 0px;
+}
+.banner-text-1 .btn{
+    font-size: 20px;
+    margin-top: 30px;
+    padding: 6px 104px;
+    border-radius: 25px;
+}
+.banner-text-2 .btn{
+    font-size: 20px;
+    margin-top: 30px;
+    padding: 6px 30px;
+    border-radius: 25px;
+    background-color: aliceblue;
+}

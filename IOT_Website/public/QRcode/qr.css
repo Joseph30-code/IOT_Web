@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+#banner{
+    background:linear-gradient(rgba(0,0,0,0.5),#1c4da885),url("https://i.postimg.cc/5NR9RgXx/computer.jpg");
+    background-size: cover;
+    background-position:center ;
+    height: 100vh;
+}
+.banner-text{
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+span.note {
+    font-weight: 600;
+    font-size: 2em;
+    color: white;
+}
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
